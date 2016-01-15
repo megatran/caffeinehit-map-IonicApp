@@ -40,9 +40,11 @@
 				position="{{[yelp.lat, yelp.lon]}}">
 			</marker>
 			<marker
+				clickable = "true"
+				on-mousedown="showCafeDetail(event, cafe)"
 				ng-repeat="cafe in yelp.results"
 				icon="img/coffee-marker.png"
-				position="{{[cafe.location.coordinate.latitude, cafe.location.coordinate.longtitude]}}" >
+				position="{{[cafe.location.coordinate.latitude, cafe.location.coordinate.longitude]}}" >
 			</marker>
 
 		</map>
@@ -52,7 +54,7 @@
 </body >
 </html >
 
-<!--
+
 
 Template for the InfoWindow component
 
@@ -89,8 +91,8 @@ Template for the InfoWindow component
 			</div >
 
 			<div class="button button-small button-assertive"
-					ng-click="openDirections(yelp.cafe)">Get Directions</div >
+					ng-click="getDirections(yelp.cafe)">Get Directions</div >
 		</div >
 	</div >
 </info-window >
--->
+
