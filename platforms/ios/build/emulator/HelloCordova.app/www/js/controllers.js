@@ -1,11 +1,9 @@
 var app = angular.module('caffeinehit.controllers', []);
 
 app.controller("YelpController", function ($scope, YelpService, NgMap) {
-	
-	$scope.$on('mapInitialized', function(event, map){
-		NgMap.getMap().then(function(map){
-			$scope.map = map;
-		});
+
+	NgMap.getMap().then(function(map) {
+		$scope.map = map;
 	});
 
 	$scope.yelp = YelpService;
@@ -42,9 +40,8 @@ app.controller("YelpController", function ($scope, YelpService, NgMap) {
 		launchnavigator.navigate(destination, source);
 	};
 
-	$scope.showCafeDetail = function(event, cafe) {
+	$scope.showCafeDetail = function (event, cafe) {
 		$scope.yelp.cafe = cafe;
-		$scope.map.showInfoWindow.apply(this, [event, 'marker-info']); //make sure match id of marker-info
-
+		$scope.map.showInfoWindow.apply(this, [event, 'marker-info']);
 	}
 });

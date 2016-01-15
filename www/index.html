@@ -47,6 +47,43 @@
 				position="{{[cafe.location.coordinate.latitude, cafe.location.coordinate.longitude]}}" >
 			</marker>
 
+			<info-window
+					id="marker-info" >
+				<div ng-non-bindable="" >
+					<div class="contents" >
+						<img ng-src="{{yelp.cafe.image_url}}"
+						     alt="" />
+						<h4 >{{yelp.cafe.name}}</h4 >
+
+						<p >{{yelp.cafe.snippet_text}}</p >
+
+						<div class="row" >
+							<div class="col" >
+								<p class="address" >
+									<i class="ion ion-ios-location" ></i >
+									{{yelp.cafe.location.display_address | join:", "}}
+								</p >
+							</div >
+							<div class="col" >
+								<p class="distance" >
+									<i class="ion ion-ios-navigate" ></i >
+									{{yelp.cafe.distance | number:"0"}}m
+								</p >
+								<p class="rating" >
+									<i class="ion ion-star" ></i >
+									{{yelp.cafe.rating}}
+									&nbsp;
+									<i class="ion ion-person" ></i >
+									{{yelp.cafe.review_count}}
+								</p >
+							</div >
+						</div >
+
+						<div class="button button-small button-assertive"
+								ng-click="getDirections(yelp.cafe)">Get Directions</div >
+					</div >
+				</div >
+			</info-window >
 		</map>
 
 	</ion-content >
@@ -58,41 +95,4 @@
 
 Template for the InfoWindow component
 
-<info-window
-		id="marker-info" >
-	<div ng-non-bindable="" >
-		<div class="contents" >
-			<img ng-src="{{yelp.cafe.image_url}}"
-			     alt="" />
-			<h4 >{{yelp.cafe.name}}</h4 >
-
-			<p >{{yelp.cafe.snippet_text}}</p >
-
-			<div class="row" >
-				<div class="col" >
-					<p class="address" >
-						<i class="ion ion-ios-location" ></i >
-						{{yelp.cafe.location.display_address | join:", "}}
-					</p >
-				</div >
-				<div class="col" >
-					<p class="distance" >
-						<i class="ion ion-ios-navigate" ></i >
-						{{yelp.cafe.distance | number:"0"}}m
-					</p >
-					<p class="rating" >
-						<i class="ion ion-star" ></i >
-						{{yelp.cafe.rating}}
-						&nbsp;
-						<i class="ion ion-person" ></i >
-						{{yelp.cafe.review_count}}
-					</p >
-				</div >
-			</div >
-
-			<div class="button button-small button-assertive"
-					ng-click="getDirections(yelp.cafe)">Get Directions</div >
-		</div >
-	</div >
-</info-window >
 
